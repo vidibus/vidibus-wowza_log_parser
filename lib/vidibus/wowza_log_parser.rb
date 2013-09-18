@@ -1,6 +1,6 @@
 module Vidibus
   class WowzaLogParser
-    VERSION = '0.1.0'
+    VERSION = '0.1.1'
     FIELDS = 'date time  tz  x-event x-category  x-severity  x-status  x-ctx x-comment x-vhost x-app x-appinst x-duration  s-ip  s-port  s-uri c-ip  c-proto c-referrer  c-user-agent  c-client-id cs-bytes  sc-bytes  x-stream-id x-spos  cs-stream-bytes sc-stream-bytes x-sname x-sname-query x-file-name x-file-ext  x-file-size x-file-length x-suri  x-suri-stem x-suri-query  cs-uri-stem cs-uri-query'
     MATCHERS = {
       '_field' => '([^\s]+)',
