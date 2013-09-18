@@ -4,7 +4,7 @@ require 'bundler'
 require 'rdoc/task'
 require 'rspec'
 require 'rspec/core/rake_task'
-require 'vidibus/wowza_log_parser/version'
+require 'vidibus/wowza_log_parser'
 
 Bundler::GemHelper.install_tasks
 

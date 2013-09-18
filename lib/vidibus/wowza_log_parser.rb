@@ -1,1 +1,5 @@
-require 'vidibus/wowza_log_parser/mongoid'
+module Vidibus
+  class WowzaLogParser
+    VERSION = '0.1.0'
+  end
+end
