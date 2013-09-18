@@ -145,7 +145,7 @@ describe Vidibus::WowzaLogParser do
 
     context 'with filter' do
       it 'should return matching lines only' do
-        subject.parse(log_path, :filter => 'comment server').count eq(1)
+        subject.parse(log_path, :filter => /comment\s+server/).count eq(1)
       end
     end
 
