@@ -63,6 +63,7 @@ If you have a different log format or want to group values, you may provide cust
   #}
 ```
 
+
 ## Testing
 
 To test your gem, call `rspec spec` on your console.
