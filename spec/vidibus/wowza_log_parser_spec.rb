@@ -139,6 +139,44 @@ describe Vidibus::WowzaLogParser do
       subject.parse(line).should eq([values])
     end
 
+    it 'should work with tab-separated content' do
+      line = "2013-09-18\t14:59:21\tCEST\tplay\tstream\tINFO\t200\trtmp://server.host:1935/whatever/_definst_/test1\t-\t_defaultVHost_\twhatever\t_definst_\t0.298\t[any]\t1935\trtmp://server.host/whatever?aaa&_session_\t158.181.75.21\trtmp\thttp://client.host/assets/player.swf\tMAC 11,8,800,170\t999037090\t3706\t3455\t1\t0\t0\t0\trtmp://server.host:1935/whatever/_definst_/test1\t-\t-\t-\t-\t-\trtmp://server.host/whatever/rtmp://server.host:1935/whatever/_definst_/test1\trtmp://server.host/whatever/rtmp://server.host:1935/whatever/_definst_/test1\t-\trtmp://server.host/whatever\taaa&_session_"
+      values = {
+        'date' => '2013-09-18',
+        'time' => '14:59:21',
+        'tz' => 'CEST',
+        'x-event' => 'play',
+        'x-category' => 'stream',
+        'x-severity' => 'INFO',
+        'x-status' => '200',
+        'x-ctx' => 'rtmp://server.host:1935/whatever/_definst_/test1',
+        'x-vhost' => '_defaultVHost_',
+        'x-app' => 'whatever',
+        'x-appinst' => '_definst_',
+        'x-duration' => '0.298',
+        's-ip' => '[any]',
+        's-port' => '1935',
+        's-uri' => 'rtmp://server.host/whatever?aaa&_session_',
+        'c-ip' => '158.181.75.21',
+        'c-proto' => 'rtmp',
+        'c-referrer' => 'http://client.host/assets/player.swf',
+        'c-user-agent' => 'MAC 11,8,800,170',
+        'c-client-id' => '999037090',
+        'cs-bytes' => '3706',
+        'sc-bytes' => '3455',
+        'x-stream-id' => '1',
+        'x-spos' => '0',
+        'cs-stream-bytes' => '0',
+        'sc-stream-bytes' => '0',
+        'x-sname' => 'rtmp://server.host:1935/whatever/_definst_/test1',
+        'x-suri' => 'rtmp://server.host/whatever/rtmp://server.host:1935/whatever/_definst_/test1',
+        'x-suri-stem' => 'rtmp://server.host/whatever/rtmp://server.host:1935/whatever/_definst_/test1',
+        'cs-uri-stem' => 'rtmp://server.host/whatever',
+        'cs-uri-query' => 'aaa&_session_'
+      }
+      subject.parse(line).should eq([values])
+    end
+
     it 'should return output from multiple lines' do
       subject.parse(log_path).count eq(100)
     end
